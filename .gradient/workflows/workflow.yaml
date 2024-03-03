@@ -24,7 +24,7 @@ jobs:
         type: volume
     uses: script@v1
     with:
-      script: python train.py
+      script: python ./train.py
       image: pytorch/pytorch:1.7.0-cuda11.0-cudnn8-runtime
   Predict:
     resources:
@@ -35,5 +35,5 @@ jobs:
       repo: Train.outputs.repo
     uses: script@v1
     with:
-      script: python predict.py
+      script: python ./predict.py
       image: pytorch/pytorch:1.7.0-cuda11.0-cudnn8-runtime
