@@ -19,6 +19,9 @@ jobs:
       - CloneRepo
     inputs:
       repo: CloneRepo.outputs.repo
+    outputs:
+      repo:
+        type: volume
     uses: script@v1
     with:
       script: python train.py
@@ -29,7 +32,7 @@ jobs:
     needs:
       - Train
     inputs:
-      repo: CloneRepo.outputs.repo
+      repo: Train.outputs.repo
     uses: script@v1
     with:
       script: python predict.py
